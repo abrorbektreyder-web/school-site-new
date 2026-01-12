@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Z.M. Bobur nomidagi xususiy maktab - kelajak yetakchilari uchun premium ta'lim.">
+    <title>Z.M. Bobur Xususiy Maktabi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #1e293b;
+            --accent-color: #cca43b;
+            --accent-hover: #b8922f;
+            --text-dark: #333333;
+            --text-light: #f8fafc;
+            --bg-light: #f1f5f9;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --container-width: 1200px;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Playfair Display", serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 20px;
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .lang-toggle span {
+            color: #999;
+            transition: var(--transition);
+        }
+
+        .lang-toggle span:hover {
+            color: var(--primary-color);
+        }
+
+        .lang-toggle span.active {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url("images/hero.jpg") center/cover no-repeat;
+            color: var(--white);
+            padding: 150px 0 100px;
+            /* Offset for fixed nav */
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Sections Common */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 70px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Stages */
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .stage-card {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            background-color: #162036;
+        }
+
+        .stage-card h3 {
+            color: var(--accent-color);
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .stage-card h4 {
+            margin-top: 60px;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .stage-card p {
+            color: #94a3b8;
+        }
+
+        /* Teachers */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .teacher-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .teacher-img {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            /* Align generic placeholder images better */
+        }
+
+        .teacher-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .teacher-card:hover .teacher-img img {
+            transform: scale(1.05);
+        }
+
+        .teacher-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .teacher-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .teacher-info p {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Gallery & Achievements */
+        .gallery-grid,
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item,
+        .achievement-item {
+            aspect-ratio: 4/3;
+            background-color: #f1f5f9;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-item img,
+        .achievement-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img,
+        .achievement-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Form */
+        .form-section {
+            background-color: var(--bg-light);
+        }
+
+        .form-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .form-text h2 {
+            font-size: 2.2rem;
+        }
+
+        .form-text img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-box {
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            background-color: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        /* Map & Footer */
+        .map-container {
+            width: 100%;
+            height: 450px;
+            background-color: #e5e7eb;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-col p {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .navbar .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-md);
+                display: none;
+                /* JS will toggle this */
+            }
+
+            .navbar .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .stages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .about-grid,
+            .form-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                /* Image on top on mobile */
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                Z.M. Bobur
+            </a>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" data-i18n="nav_about" onclick="toggleMenu()">Maktab haqida</a></li>
+                <li><a href="#benefits" data-i18n="nav_benefits" onclick="toggleMenu()">Afzalliklar</a></li>
+                <li>
+                    <a href="#stages" data-i18n="nav_stages" onclick="toggleMenu()">Ta'lim bosqichlari</a>
+                </li>
+                <li><a href="#teachers" data-i18n="nav_teachers" onclick="toggleMenu()">Ustozlar</a></li>
+                <li><a href="#apply" data-i18n="nav_apply" onclick="toggleMenu()">Ariza</a></li>
+                <li><a href="#contact" data-i18n="nav_contact" onclick="toggleMenu()">Manzil</a></li>
+                <li class="lang-toggle-mobile">
+                    <div class="lang-toggle">
+                        <span class="active" onclick="setLanguage('uz')">UZ</span>
+                        <span>|</span>
+                        <span onclick="setLanguage('ru')">RU</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1 data-i18n="hero_title">
+                Kelajak yetakchilari shu yerdan boshlanadi
+            </h1>
+            <p data-i18n="hero_desc">
+                Zamonaviy ta'lim, premium muhit va individual yondashuv bilan
+                bolalaringiz kelajagini quramiz.
+            </p>
+            <div class="hero-buttons">
+                <a href="#apply" class="btn" data-i18n="hero_btn_apply">Ariza qoldirish</a>
+                <a href="#about" class="btn btn-outline" data-i18n="hero_btn_more">Batafsil</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 data-i18n="about_title">Premium ta'lim konsepsiyasi</h2>
+                    <p data-i18n="about_text_1">
+                        Z.M. Bobur Xususiy Maktabi — bu faqat maktab emas, bu shaxsni
+                        shakllantiradigan, mustaqil fikrlashga o'rgatadigan va yetakchi
+                        qilib tarbiyalaydigan muhit.
+                    </p>
+                    <p data-i18n="about_text_2">
+                        Bizning maqsadimiz har bir o'quvchida ichki motivatsiyani
+                        uyg'otish va ularga dunyoni o'zgartirish qobiliyatini berishdir.
+                    </p>
+                    <div style="margin-top: 30px;">
+                        <a href="#teachers" class="btn" data-i18n="nav_teachers">Ustozlar bilan tanishish</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="classes/c1.png" alt="Maktab haqida"
+                        onerror="this.src='https://placehold.co/600x450/e2e8f0/64748b?text=Maktab+Rasmi'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="section" style="background-color: var(--bg-light)">
+        <div class="container">
+            <h2 class="section-title" data-i18n="benefits_title">
+                Nima uchun biz?
+            </h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">★</div>
+                    <h3 data-i18n="ben_1_title">Zamonaviy dastur</h3>
+                    <p data-i18n="ben_1_desc">Xalqaro standartlarga mos o'quv reja.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">●</div>
+                    <h3 data-i18n="ben_2_title">Premium muhit</h3>
+                    <p data-i18n="ben_2_desc">Zamonaviy infratuzilma va qulayliklar.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">▲</div>
+                    <h3 data-i18n="ben_3_title">Individual yondashuv</h3>
+                    <p data-i18n="ben_3_desc">Har bir bolaga alohida e'tibor.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">■</div>
+                    <h3 data-i18n="ben_4_title">Tajribali ustozlar</h3>
+                    <p data-i18n="ben_4_desc">
+                        O'z sohasining eng yaxshi mutaxassislari.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stages -->
+    <section id="stages" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="stages_title">
+                Ta'lim bosqichlari
+            </h2>
+            <div class="stages-grid">
+                <div class="stage-card">
+                    <h3>1-4</h3>
+                    <h4 data-i18n="stage_1_title">Boshlang'ich ta'lim</h4>
+                    <p data-i18n="stage_1_desc">
+                        Asosiy ko'nikmalar va mantiqiy fikrlash.
+                    </p>
+                </div>
+                <div class="stage-card">
+                    <h3>5-9</h3>
+                    <h4 data-i18n="stage_2_title">Umumiy o'rta ta'lim</h4>
+                    <p data-i18n="stage_2_desc">
+                        Chuqurlashtirilgan darslar va fanlar.
+                    </p>
+                </div>
+                <div class="stage-card">
+                    <h3>10-11</h3>
+                    <h4 data-i18n="stage_3_title">O'rta maxsus ta'lim</h4>
+                    <p data-i18n="stage_3_desc">
+                        Mustaqil ta'lim va kasbga yo'naltirish.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers -->
+    <section id="teachers" class="section" style="background-color: var(--bg-light)">
+        <div class="container">
+            <h2 class="section-title" data-i18n="teachers_title">Ustozlar</h2>
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="teachers/t1.png" alt="Dilshod Akramov"
+                            onerror="this.src='https://placehold.co/400x400/e2e8f0/64748b?text=Ustoz'" />
+                    </div>
+                    <div class="teacher-info">
+                        <h4>Dilshod Akramov</h4>
+                        <p data-i18n="teacher_1_role">Direktor</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="teachers/t2.png" alt="Mohira Qodirova"
+                            onerror="this.src='https://placehold.co/400x400/e2e8f0/64748b?text=Ustoz'" />
+                    </div>
+                    <div class="teacher-info">
+                        <h4>Mohira Qodirova</h4>
+                        <p data-i18n="teacher_2_role">Matematika</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="teachers/t3.png" alt="Sardor Ismoilov"
+                            onerror="this.src='https://placehold.co/400x400/e2e8f0/64748b?text=Ustoz'" />
+                    </div>
+                    <div class="teacher-info">
+                        <h4>Sardor Ismoilov</h4>
+                        <p data-i18n="teacher_3_role">Ingliz tili</p>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="teachers/t4.png" alt="Nigora Usmonova"
+                            onerror="this.src='https://placehold.co/400x400/e2e8f0/64748b?text=Ustoz'" />
+                    </div>
+                    <div class="teacher-info">
+                        <h4>Nigora Usmonova</h4>
+                        <p data-i18n="teacher_4_role">Boshlang'ich ta'lim</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Class Process Gallery -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="gallery_title">Sinf jarayoni</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="classes/c1.png" alt="Class"
+                        onerror="this.src='https://placehold.co/600x450/e2e8f0/64748b?text=Sinf'" />
+                </div>
+                <div class="gallery-item">
+                    <img src="classes/c2.png" alt="Class"
+                        onerror="this.src='https://placehold.co/600x450/e2e8f0/64748b?text=Sinf'" />
+                </div>
+                <div class="gallery-item">
+                    <img src="classes/c3.png" alt="Class"
+                        onerror="this.src='https://placehold.co/600x450/e2e8f0/64748b?text=Sinf'" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="section" style="background-color: var(--bg-light)">
+        <div class="container">
+            <h2 class="section-title" data-i18n="achieve_title">
+                Musobaqalar va yutuqlar
+            </h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <img src="competitions/m1.png" alt="Competition"
+                        onerror="this.src='https://placehold.co/600x450/e2e8f0/64748b?text=Yutuq'" />
+                </div>
+                <div class="achievement-item">
+                    <img src="competitions/m2.png" alt="Competition"
+                        onerror="this.src='https://placehold.co/600x450/e2e8f0/64748b?text=Yutuq'" />
+                </div>
+                <div class="achievement-item">
+                    <img src="competitions/m3.png" alt="Competition"
+                        onerror="this.src='https://placehold.co/600x450/e2e8f0/64748b?text=Yutuq'" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" class="section form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-text">
+                    <h2 data-i18n="form_title">
+                        Bolalaringiz kelajogi uchun birinchi qadam
+                    </h2>
+                    <p data-i18n="form_desc">
+                        Ariza qoldiring, va biz siz bilan bog'lanamiz.
+                    </p>
+                    <div class="about-image" style="margin-top: 30px;">
+                        <!-- Using existing image for form too or a generic placeholder -->
+                        <img src="images/hero.jpg" alt="Form" style="height: 300px; object-fit: cover;"
+                            onerror="this.src='https://placehold.co/600x600/e2e8f0/64748b?text=Maktab'" />
+                    </div>
+                </div>
+                <div class="form-box">
+                    <form>
+                        <div class="form-group">
+                            <label data-i18n="form_parent_name">Ota-ona ismi</label>
+                            <input type="text" required placeholder="Ism sharifingiz" />
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_phone">Telefon</label>
+                            <input type="tel" required placeholder="+998 90 123 45 67" />
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_child_name">Bolaning ismi</label>
+                            <input type="text" required placeholder="Farzandingiz ismi" />
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_class">Sinf</label>
+                            <select>
+                                <option>1-4 sinf</option>
+                                <option>5-9 sinf</option>
+                                <option>10-11 sinf</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_message">Qo'shimcha xabar</label>
+                            <textarea placeholder="Savol yoki takliflaringiz..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%" data-i18n="form_submit">
+                            Yuborish
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map & Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="map-container">
+                <!-- Embedded Google Map -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12093.633742468305!2d72.34863339999999!3d40.7820617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bced630e0f4795%3A0xfc6204a39f607c3!2sAndijan%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Z.M. Bobur</h4>
+                    <p data-i18n="footer_desc">Premium ta'lim maktabi.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="nav_contact">Manzil</h4>
+                    <p>Andijon shahar,</p>
+                    <p>1-kichik-daha, 10-uy</p>
+                    <p style="color: var(--accent-color); font-weight: bold;">+998 90 123 45 67</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Ijtimoiy tarmoqlar</h4>
+                    <div style="display: flex; gap: 15px; font-size: 1.5rem; margin-top: 10px;">
+                        <a href="#"><i style="font-style: normal;">Telegram</i></a>
+                        <a href="#"><i style="font-style: normal;">Instagram</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Z.M. Bobur Xususiy Maktabi. Barcha huquqlar himoyalangan.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            uz: {
+                nav_about: "Maktab haqida",
+                nav_benefits: "Afzalliklar",
+                nav_stages: "Ta'lim bosqichlari",
+                nav_teachers: "Ustozlar",
+                nav_apply: "Ariza",
+                nav_contact: "Manzil",
+                hero_title: "Kelajak yetakchilari shu yerdan boshlanadi",
+                hero_desc:
+                    "Zamonaviy ta'lim, premium muhit va individual yondashuv bilan bolalaringiz kelajagini quramiz.",
+                hero_btn_apply: "Ariza qoldirish",
+                hero_btn_more: "Batafsil",
+                about_title: "Premium ta'lim konsepsiyasi",
+                about_text_1:
+                    "Z.M. Bobur Xususiy Maktabi — bu faqat maktab emas, bu shaxsni shakllantiradigan, mustaqil fikrlashga o'rgatadigan va yetakchi qilib tarbiyalaydigan muhit.",
+                about_text_2:
+                    "Bizning maqsadimiz har bir o'quvchida ichki motivatsiyani uyg'otish va ularga dunyoni o'zgartirish qobiliyatini berishdir.",
+                benefits_title: "Nima uchun biz?",
+                ben_1_title: "Zamonaviy dastur",
+                ben_1_desc: "Xalqaro standartlarga mos o'quv reja.",
+                ben_2_title: "Premium muhit",
+                ben_2_desc: "Zamonaviy infratuzilma va qulayliklar.",
+                ben_3_title: "Individual yondashuv",
+                ben_3_desc: "Har bir bolaga alohida e'tibor.",
+                ben_4_title: "Tajribali ustozlar",
+                ben_4_desc: "O'z sohasining eng yaxshi mutaxassislari.",
+                stages_title: "Ta'lim bosqichlari",
+                stage_1_title: "Boshlang'ich ta'lim",
+                stage_1_desc: "Asosiy ko'nikmalar va mantiqiy fikrlash.",
+                stage_2_title: "Umumiy o'rta ta'lim",
+                stage_2_desc: "Chuqurlashtirilgan darslar va fanlar.",
+                stage_3_title: "O'rta maxsus ta'lim",
+                stage_3_desc: "Mustaqil ta'lim va kasbga yo'naltirish.",
+                teachers_title: "Ustozlar",
+                teacher_1_role: "Direktor",
+                teacher_2_role: "Matematika",
+                teacher_3_role: "Ingliz tili",
+                teacher_4_role: "Boshlang'ich ta'lim",
+                gallery_title: "Sinf jarayoni",
+                achieve_title: "Musobaqalar va yutuqlar",
+                form_title: "Bolalaringiz kelajogi uchun birinchi qadam",
+                form_desc: "Ariza qoldiring, va biz siz bilan bog'lanamiz.",
+                form_parent_name: "Ota-ona ismi",
+                form_phone: "Telefon",
+                form_child_name: "Bolaning ismi",
+                form_class: "Sinf",
+                form_message: "Qo'shimcha xabar",
+                form_submit: "Yuborish",
+                footer_desc: "Premium ta'lim maktabi.",
+            },
+            ru: {
+                nav_about: "О школе",
+                nav_benefits: "Преимущества",
+                nav_stages: "Этапы обучения",
+                nav_teachers: "Учителя",
+                nav_apply: "Заявка",
+                nav_contact: "Адрес",
+                hero_title: "Лидеры будущего начинаются здесь",
+                hero_desc:
+                    "Мы формируем будущее ваших детей с помощью современного образования, премиальной среды и индивидуального подхода.",
+                hero_btn_apply: "Оставить заявку",
+                hero_btn_more: "Подробнее",
+                about_title: "Концепция премиального образования",
+                about_text_1:
+                    "Частная школа З.М. Бабура — это не просто школа, это среда, которая формирует личность, учит мыслить независимо и воспитывает лидеров.",
+                about_text_2:
+                    "Наша цель — пробудить внутреннюю мотивацию в каждом ученике и дать им возможность изменить мир.",
+                benefits_title: "Почему мы?",
+                ben_1_title: "Современная программа",
+                ben_1_desc: "Учебный план, соответствующий международным стандартам.",
+                ben_2_title: "Премиальная среда",
+                ben_2_desc: "Современная инфраструктура и удобства.",
+                ben_3_title: "Индивидуальный подход",
+                ben_3_desc: "Особое внимание каждому ребенку.",
+                ben_4_title: "Опытные учителя",
+                ben_4_desc: "Лучшие специалисты в своей области.",
+                stages_title: "Этапы обучения",
+                stage_1_title: "Начальное образование",
+                stage_1_desc: "Базовые навыки и логическое мышление.",
+                stage_2_title: "Общее среднее образование",
+                stage_2_desc: "Углубленные уроки и предметы.",
+                stage_3_title: "Среднее специальное образование",
+                stage_3_desc: "Самостоятельное обучение и профориентация.",
+                teachers_title: "Учителя",
+                teacher_1_role: "Директор",
+                teacher_2_role: "Математика",
+                teacher_3_role: "Английский язык",
+                teacher_4_role: "Начальное образование",
+                gallery_title: "Процесс обучения",
+                achieve_title: "Соревнования и достижения",
+                form_title: "Первый шаг к будущему ваших детей",
+                form_desc: "Оставьте заявку, и мы свяжемся с вами.",
+                form_parent_name: "Имя родителя",
+                form_phone: "Телефон",
+                form_child_name: "Имя ребенка",
+                form_class: "Класс",
+                form_message: "Дополнительное сообщение",
+                form_submit: "Отправить",
+                footer_desc: "Школа премиум-класса.",
+            },
+        };
+
+        let currentLang = "uz";
+
+        function setLanguage(lang) {
+            currentLang = lang;
+
+            // Update text content
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                if (translations[lang][key]) {
+                    // Handle input placeholders differently
+                    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update active class on toggle
+            const toggles = document.querySelectorAll(".lang-toggle span");
+            toggles.forEach((t) => {
+                t.classList.remove("active");
+                if (
+                    (t.textContent === "UZ" && lang === "uz") ||
+                    (t.textContent === "RU" && lang === "ru")
+                ) {
+                    t.classList.add("active");
+                }
+            });
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Initialize
+        document.addEventListener("DOMContentLoaded", () => {
+            setLanguage("uz");
+
+            // Add minimal animation observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.section-title').forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
